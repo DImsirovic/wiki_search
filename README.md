@@ -1,5 +1,5 @@
 # Wikipedia Article Search Engine
-*As this was part of coursework for the Web Systems course at the University of Michigan, code cannot be made publicly available due to College of Engineering Honor Code restrictions. However, code can be provided upon request*
+*As this was part of coursework for the Web Systems course at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, code cannot be made publicly available. However, code can be provided upon request*
 
 ## Introduction
 The goal of this project was to build a scalable search engine similar to that of a commercial engine such as Google, Bing, etc. This project has several features:
@@ -64,9 +64,10 @@ The index server is a separate service from the search interface that handles se
 ## Search Interface
 The final component of this project is a search engine user interface written using server-side dynamic pages. The interface provides a GUI for the user to enter a query and specify a PageRank weight and sends a request to the index server. When it receives the search results from the API, it displays them on the webpage. 
 
-`diagram`
+![](/images/server_diagram.jpg)
 
 Sample screenshots are provided below:
-`ss 1`
 
-`ss 2`
+`screenshot 1`
+
+`screenshot 2`
