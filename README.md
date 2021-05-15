@@ -1,5 +1,4 @@
 # Wikipedia Article Search Engine
-*As this was part of coursework for the Web Systems course at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, code cannot be made publicly available. However, code can be provided upon request*
 
 ## Introduction
 The goal of this project was to build a scalable search engine similar to that of a commercial engine such as Google, Bing, etc. This project has several features:
@@ -54,20 +53,40 @@ fine 0.47712125471966244 3 1 2.048802225347385
 vonnegut 0.47712125471966244 2 1 1.593512841936855
 ```
 
-## RESTful API Index Server
-The index server is a separate service from the search interface that handles search queries and returns a list of relevant results. It is a RESTful API that returns search results in JSON format that the search server processes to display results to the user.
+## REST API Index Server
+The index server is a separate service from the search interface that handles search queries and returns a list of relevant results. It is a RESTful API returning search results in JSON format that the search server processes to display results to the user. Both the index are search servers are Flask apps.
 
 ### PageRank Integration
+A set of pages and their PageRank scores were provided to serve as an adjustable weight for the user. The weight `w` represents how much weight we want to give the document's PageRank versus it's cosine similarity with the query. The formula for the score of a query `d` on a single document `d` is calculated as follows:
 
-### API Endpoints
+``` score(q, d, w) = w * PageRank(d) + (1 - w) * tf_idf(q, d) ```
+
+When the server is run, it loads the inverted index, pagerank, and stopwords file into memory and waits for queries. This is done once when the server is first started to optimize runtime efficiency. A sample response from the API is shown below:
+```
+{
+  "hits": [
+    {
+      "docid": 868657,
+      "score": 0.07169032464745069
+    }
+  ]
+}
+```
+The documents are sorted in order of relevance score - most relevant documents appear at the top and least relevant at the bottom (ties broken by document id).
 
 ## Search Interface
 The final component of this project is a search engine user interface written using server-side dynamic pages. The interface provides a GUI for the user to enter a query and specify a PageRank weight and sends a request to the index server. When it receives the search results from the API, it displays them on the webpage. 
 
 ![](/images/server_diagram.jpg)
 
-Sample screenshots are provided below:
+### GUI
+Users enter their query into a text input box and specify the PageRank weight value using a slider. The engine assumes words don't have to appear consecutively and in-sequence. When the user clicks the `submit` button, the page makes a GET request to the API with query parameters `q` and `w`, returning the appropriate article titles.
+
+Sample screenshots of the interface are provided below:
 
 `screenshot 1`
 
 `screenshot 2`
+
+---
+*As this was part of coursework at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, source code cannot be made publicly available. It can be provided upon request to appropriate parties*
