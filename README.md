@@ -1,4 +1,5 @@
 # Wikipedia Article Search Engine
+![](images/wiki_logo.jpg)
 
 ## Introduction
 The goal of this project was to build a scalable search engine similar to that of a commercial engine such as Google, Bing, etc. This project has several features:
@@ -89,4 +90,4 @@ Sample screenshots of the interface are provided below:
 `screenshot 2`
 
 ---
-*As this was part of coursework at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, source code cannot be made publicly available. It can be provided upon request to appropriate parties*
+*As this was part of coursework at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, source code cannot be made publicly available. It can be provided upon request to appropriate parties.*
