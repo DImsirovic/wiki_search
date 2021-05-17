@@ -1,5 +1,5 @@
 # Wikipedia Article Search Engine
-![](images/wiki_logo.jpg)
+![](/images/wiki_ds_results.jpg)
 
 ## Introduction
 The goal of this project was to build a scalable search engine similar to that of a commercial engine such as Google, Bing, etc. This project has several features:
@@ -81,13 +81,15 @@ The final component of this project is a search engine user interface written us
 ![](/images/server_diagram.jpg)
 
 ### GUI
-Users enter their query into a text input box and specify the PageRank weight value using a slider. The engine assumes words don't have to appear consecutively and in-sequence. When the user clicks the `submit` button, the page makes a GET request to the API with query parameters `q` and `w`, returning the appropriate article titles.
+Users enter their query into a text input box and specify the PageRank weight value using a slider. The engine assumes words don't have to appear consecutively and in-sequence. When the user clicks the `submit` button, the page makes a GET request to the API with query parameters `q` and `w`, returning the appropriate article titles, summaries, and urls.
 
 Sample screenshots of the interface are provided below:
 
-`screenshot 1`
+### Multiple Results
+![](/images/wiki_ds_results.jpg)
 
-`screenshot 2`
+### No Results
+![](/images/wiki_no_results.jpg)
 
 ---
 *As this was part of coursework at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, source code cannot be made publicly available. It can be provided upon request to appropriate parties.*
