@@ -4,8 +4,8 @@
 ## Introduction
 The goal of this project was to build a scalable search engine similar to that of a commercial engine such as Google, Bing, etc. This project has several features:
 * Indexing implemented with MapReduce for scalability 
-* Ranking results on **tf-idf** and **PageRank** scores
-* A simple user interface with tunable weights
+* Information Retrieval concepts such as PageRank and tf-idf
+* A simple user interface with tunable weights for a full end-to-end search engine
 
 Each of these features are further explained below:
 
@@ -86,7 +86,7 @@ Users enter their query into a text input box and specify the PageRank weight va
 Sample screenshots of the interface are provided below:
 
 ### Multiple Results
-![](/images/wiki_ds_results.jpg)
+![](/images/wiki_ml_results.jpg)
 
 ### No Results
 ![](/images/wiki_no_results.jpg)
