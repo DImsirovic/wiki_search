@@ -75,10 +75,13 @@ When the server is run, it loads the inverted index, pagerank, and stopwords fil
 ```
 The documents are sorted in order of relevance score - most relevant documents appear at the top and least relevant at the bottom (ties broken by document id).
 
-## Search Interface
+## Search Server/Interface
 The final component of this project is a search engine user interface written using server-side dynamic pages. The interface provides a GUI for the user to enter a query and specify a PageRank weight and sends a request to the index server. When it receives the search results from the API, it displays them on the webpage. 
 
 ![](/images/server_diagram.jpg)
+
+### Database
+When a user submits a query and the API returns the list of results, the search server submits an SQL query for those results to a previously created database. The DB contains one table using `doc_id` as a primary key and additional entries containing an article's title, summary, url, and other features.
 
 ### GUI
 Users enter their query into a text input box and specify the PageRank weight value using a slider. The engine assumes words don't have to appear consecutively and in-sequence. When the user clicks the `submit` button, the page makes a GET request to the API with query parameters `q` and `w`, returning the appropriate article titles, summaries, and urls.
@@ -91,5 +94,17 @@ Sample screenshots of the interface are provided below:
 ### No Results
 ![](/images/wiki_no_results.jpg)
 
+## Shell-scripting
+As is often the case with web development, the servers and database were often stopped, restarted, or reset. Shell scripts were then created to facilitate server and database management by automating command line tasks. 
+
+For example, resetting index server:
+``` shell
+$ ./bin/index restart
+stopping index server ...
++ pkill -f 'flask run --host 0.0.0.0 --port 8001'
+starting index server ...
++ export FLASK_APP=index
++ flask run --host 0.0.0.0 --port 8001
+```
 ---
 *As this was part of coursework at the University of Michigan and in accordance with College of Engineering Honor Code restrictions, source code cannot be made publicly available. It can be provided upon request to appropriate parties.*
